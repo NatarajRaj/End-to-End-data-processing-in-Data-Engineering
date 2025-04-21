@@ -32,15 +32,15 @@ Technologies Used
 * Docker: Containerization of all services for easy deployment and scalability.
   
 How the Pipeline Works
-1. Data Fetching (API ? PostgreSQL):
+1. Data Fetching (API → PostgreSQL):
 o Apache Airflow triggers a task that fetches data from the randomuser.me API at a scheduled interval.
 o The fetched data is stored in a PostgreSQL database for further processing.
-2. Kafka Streaming (PostgreSQL ? Kafka):
+2. Kafka Streaming (PostgreSQL → Kafka):
 o The data in PostgreSQL is streamed to Apache Kafka, acting as a message broker.
 o The data is published to a Kafka topic, which is consumed by Spark for processing.
-3. Real-Time Data Processing (Kafka ? Spark):
+3. Real-Time Data Processing (Kafka → Spark):
 o Apache Spark consumes the data from the Kafka topic, processes it in real-time, and performs any necessary transformations.
-4. Data Storage (Spark ? Cassandra):
+4. Data Storage (Spark → Cassandra):
 o The processed data is stored in a Cassandra database for further use or analysis.
 
 Docker Compose Setup
@@ -56,5 +56,5 @@ The project is containerized using Docker Compose. The following services are in
   
 Credits:
 
-This project was developed by Yusuf Ganiyu (@airscholar). The concept and tech stack come from real-time data processing requirements and the integration of various tools to achieve seamless data flow and transformation.
+This project was developed by Yusuf Ganiyu (airscholar). The concept and tech stack come from real-time data processing requirements and the integration of various tools to achieve seamless data flow and transformation.
 
